@@ -41,7 +41,7 @@ TEST(Forging, ForgeZarithZero) {
   
     auto output = forgeZarith(0);
   
-    ASSERT_EQ(hex(output), hex(parse_hex(expected)));
+    ASSERT_EQ(output, parse_hex(expected));
 }
 
 TEST(Forging, ForgeZarithTen) {
@@ -66,6 +66,15 @@ TEST(Forging, ForgeZarithOneHundredFifty) {
     auto output = forgeZarith(150);
   
     ASSERT_EQ(output, parse_hex(expected));
+}
+
+
+TEST(Forging, ForgeZarithLarge) {
+    auto expected = "82fc43";
+  
+    auto output = forgeZarith(1113602);
+  
+    ASSERT_EQ(hex(output), hex(parse_hex(expected)));
 }
 
 TEST(Forging, forge_tz1) {
